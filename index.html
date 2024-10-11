@@ -4,43 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LinkedIn Follow Button</title>
-    <script type="text/javascript">
-        function detectDevice() {
-            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            var contentDiv = document.getElementById("content");
-
-            // Detect iOS
-            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                contentDiv.innerHTML = "<p>Follow us on LinkedIn</p>";
-            }
-            // Detect Android or Desktop
-            else if (/android/i.test(userAgent) || !/Mobi|Android/i.test(userAgent)) {
-                // Create the LinkedIn script element
-                var script = document.createElement("script");
-                script.src = "https://platform.linkedin.com/in.js";
-                script.type = "text/javascript";
-                script.innerHTML = "lang: en_US"; // Set the language parameter
-
-                // Create the LinkedIn Follow Company script
-                var followScript = document.createElement("script");
-                followScript.type = "IN/FollowCompany";
-                followScript.setAttribute("data-id", "0000"); // Replace with your actual LinkedIn Company ID
-                followScript.setAttribute("data-counter", "bottom");
-
-                // Append the scripts to the content div
-                contentDiv.appendChild(script);
-                contentDiv.appendChild(followScript);
-            }
+    <script src="https://platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
         }
-
-        // Run the device detection function when the page loads
-        window.onload = detectDevice;
-    </script>
+    </style>
 </head>
 <body>
-    <h1>Follow Us on LinkedIn</h1>
-    <div id="content">
-        <!-- The LinkedIn button or message will be dynamically inserted here based on device -->
-    </div>
+
+<div id="content"></div>
+
+<script>
+    function detectDevice() {
+        const contentDiv = document.getElementById("content");
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        // Check for mobile devices
+        if (/android/i.test(userAgent) || /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            contentDiv.innerHTML = '<script type="IN/FollowCompany" data-id="YOUR_COMPANY_ID" data-counter="bottom"></script>';
+        } else {
+            // For desktop users
+            contentDiv.innerHTML = '<h2>Desktop Version</h2>';
+        }
+    }
+
+    // Run the device detection function when the page loads
+    window.onload = detectDevice;
+</script>
+
 </body>
 </html>
