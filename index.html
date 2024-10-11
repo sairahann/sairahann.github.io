@@ -46,7 +46,21 @@
             }
             // Detect Desktop
             else {
-                contentDiv.innerHTML = "<p>Desktop Version</p>";
+                // Create the LinkedIn script element
+                var script = document.createElement("script");
+                script.src = "https://platform.linkedin.com/in.js";
+                script.type = "text/javascript";
+                script.innerHTML = "lang: en_US"; // Set the language parameter
+
+                // Create the LinkedIn Follow Company script
+                var followScript = document.createElement("script");
+                followScript.type = "IN/FollowCompany";
+                followScript.setAttribute("data-id", "0000"); // Replace with your actual LinkedIn Company ID
+                followScript.setAttribute("data-counter", "bottom");
+
+                // Append the scripts to the content div
+                contentDiv.appendChild(script);
+                contentDiv.appendChild(followScript);
             }
         }
 
