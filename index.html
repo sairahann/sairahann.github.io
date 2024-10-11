@@ -29,7 +29,20 @@
             }
             // Detect iOS
             else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                contentDiv.innerHTML = "<p>Follow us on LinkedIn</p>";
+                // Create a LinkedIn button that redirects to your LinkedIn page
+                var linkedinButton = document.createElement("a");
+                linkedinButton.href = "https://www.linkedin.com/in/rhea-ann-varghese/"; // Replace with your LinkedIn profile URL
+                linkedinButton.target = "_blank"; // Open in a new tab
+                linkedinButton.style.display = "inline-block";
+                linkedinButton.style.padding = "10px 20px";
+                linkedinButton.style.backgroundColor = "#0077B5"; // LinkedIn blue color
+                linkedinButton.style.color = "#fff";
+                linkedinButton.style.textDecoration = "none";
+                linkedinButton.style.borderRadius = "5px";
+                linkedinButton.innerHTML = "Follow us on LinkedIn"; // Button text
+
+                // Append the button to the content div
+                contentDiv.appendChild(linkedinButton);
             }
             // Detect Desktop
             else {
