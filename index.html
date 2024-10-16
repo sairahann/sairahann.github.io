@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LinkedIn Follow Button</title>
+    <title>Document</title>
+</head>
+<body>
+    <div class="linkedin-button">
+        <script src="//platform.linkedin.com/in.js" type="text/javascript">
+                    lang: en_US
+                  </script>
+        <script type="IN/FollowCompany" data-id="33263410" data-counter="right"></script>
+        </div>
     <script type="text/javascript">
         function detectDevice() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
             var contentDiv = document.getElementById("content");
-
             // Detect Android
             if (/android/i.test(userAgent)) {
                 // Create the LinkedIn script element
@@ -16,13 +23,11 @@
                 script.src = "https://platform.linkedin.com/in.js";
                 script.type = "text/javascript";
                 script.innerHTML = "lang: en_US"; // Set the language parameter
-
                 // Create the LinkedIn Follow Company script
                 var followScript = document.createElement("script");
                 followScript.type = "IN/FollowCompany";
                 followScript.setAttribute("data-id", "33263410"); // Replace with your actual LinkedIn Company ID
                 followScript.setAttribute("data-counter", "bottom");
-
                 // Append the scripts to the content div
                 contentDiv.appendChild(script);
                 contentDiv.appendChild(followScript);
@@ -31,7 +36,7 @@
             else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
                 // Create a LinkedIn button that redirects to your LinkedIn page
                 var linkedinButton = document.createElement("a");
-                linkedinButton.href = "https://www.linkedin.com/in/rhea-ann-varghese/"; // Replace with your LinkedIn profile URL
+                linkedinButton.href = "https://www.linkedin.com/company/beauty-west-africa/"; // Replace with your LinkedIn profile URL
                 linkedinButton.target = "_blank"; // Open in a new tab
                 linkedinButton.style.display = "inline-block";
                 linkedinButton.style.padding = "10px 20px";
@@ -40,7 +45,6 @@
                 linkedinButton.style.textDecoration = "none";
                 linkedinButton.style.borderRadius = "5px";
                 linkedinButton.innerHTML = "Follow us on LinkedIn"; // Button text
-
                 // Append the button to the content div
                 contentDiv.appendChild(linkedinButton);
             }
@@ -51,27 +55,18 @@
                 script.src = "https://platform.linkedin.com/in.js";
                 script.type = "text/javascript";
                 script.innerHTML = "lang: en_US"; // Set the language parameter
-
                 // Create the LinkedIn Follow Company script
                 var followScript = document.createElement("script");
                 followScript.type = "IN/FollowCompany";
                 followScript.setAttribute("data-id", "33263410"); // Replace with your actual LinkedIn Company ID
                 followScript.setAttribute("data-counter", "bottom");
-
                 // Append the scripts to the content div
                 contentDiv.appendChild(script);
                 contentDiv.appendChild(followScript);
             }
         }
-
         // Run the device detection function when the page loads
         window.onload = detectDevice;
-    </script>
-</head>
-<body>
-    <h1>Follow Us on LinkedIn</h1>
-    <div id="content">
-        <!-- The LinkedIn button or message will be dynamically inserted here based on device -->
-    </div>
+        </script>
 </body>
 </html>
