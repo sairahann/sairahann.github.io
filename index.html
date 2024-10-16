@@ -4,14 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
-    <div class="linkedin-button">
-        <script src="//platform.linkedin.com/in.js" type="text/javascript">
-                    lang: en_US
-                  </script>
-        <script type="IN/FollowCompany" data-id="33263410" data-counter="right"></script>
-        </div>
     <script type="text/javascript">
         function detectDevice() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -68,5 +60,12 @@
         // Run the device detection function when the page loads
         window.onload = detectDevice;
         </script>
+</head>
+<body>
+    <h1>Follow Us on LinkedIn</h1>
+    <div id="content">
+        <!-- The LinkedIn button or message will be dynamically inserted here based on device -->
+    </div>
 </body>
+
 </html>
